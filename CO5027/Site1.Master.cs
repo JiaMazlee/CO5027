@@ -45,7 +45,7 @@ namespace CO5027
             var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
             authenticationManager.SignOut();
 
-            Response.Redirect("~/Index.aspx");
+            Response.Redirect("~/Default.aspx");
         }
     }
 }

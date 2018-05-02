@@ -7,6 +7,9 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace CO5027.Account
 {
@@ -19,19 +22,16 @@ namespace CO5027.Account
         protected void btnUser_Click(object sender, EventArgs e)
 
         {
-
-                 UserStore<IdentityUser> userStore = new UserStore<IdentityUser>();
-            userStore.Context.Database.Connection.ConnectionString =
-                System.Configuration.ConfigurationManager.ConnectionStrings["co5027_ConnectionString"].ConnectionString;
-
-            UserManager<IdentityUser> manager = new UserManager<IdentityUser>(userStore);
-            var user = manager.Find(txtUserName.Text, txtPassword.Text);
-
+            var identityDbContext = new IdentityDbContext("co5027_ConnectionString");
+            var userStore = new UserStore<IdentityUser>(identityDbContext);
+            var userManager = new UserManager<IdentityUser>(userStore);
+            var user = userManager.Find(txtUserName.Text, txtPassword.Text);
+           
             if (txtUserName.Text != ("Admin"))
             {
                 //Call OWIN functionality
                 var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
-                var userIdentity = manager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+                var userIdentity = userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
 
                 //Sign in user
                 authenticationManager.SignIn(new AuthenticationProperties
@@ -40,7 +40,7 @@ namespace CO5027.Account
                 }, userIdentity);
 
                 //Redirect user to Product page
-                Response.Redirect("~/Product.aspx");
+                Response.Redirect("~/ProductList.aspx");
             }
             else
             {
@@ -51,19 +51,16 @@ namespace CO5027.Account
         protected void btnAdmin_Click(object sender, EventArgs e)
         {
 
-            UserStore<IdentityUser> userStore = new UserStore<IdentityUser>();
-            userStore.Context.Database.Connection.ConnectionString =
-                System.Configuration.ConfigurationManager.ConnectionStrings["co5027_ConnectionString"].ConnectionString;
-
-            UserManager<IdentityUser> manager = new UserManager<IdentityUser>(userStore);
-
-            var Admin = manager.Find(txtUserName.Text, txtPassword.Text);
+            var identityDbContext = new IdentityDbContext("co5027_ConnectionString");
+            var userStore = new UserStore<IdentityUser>(identityDbContext);
+            var manager = new UserManager<IdentityUser>(userStore);
+            var user = manager.Find(txtUserName.Text, txtPassword.Text);
 
             if (txtUserName.Text == ("Admin"))
             {
                 //Call OWIN functionality
                 var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
-                var userIdentity = manager.CreateIdentity(Admin, DefaultAuthenticationTypes.ApplicationCookie);
+                var userIdentity = manager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
 
                 //Sign in user
                 authenticationManager.SignIn(new AuthenticationProperties

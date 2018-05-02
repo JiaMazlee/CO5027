@@ -10,7 +10,7 @@
 namespace CO5027.Admin {
     
     
-    public partial class Management {
+    public partial class ListOfProduct {
         
         /// <summary>
         /// AddProduct control.

@@ -15,7 +15,7 @@ namespace CO5027.Model
                 db.ProductCats.Add(ProductCat);
                 db.SaveChanges();
 
-                return ProductCat.ProductCatName + " was succesfully inserted";
+                return ProductCat.ProductCatName + " was succesfully inserted. Please Proceed to Product Page or Insert Another Product Category ";
             }
             catch (Exception e)
             {

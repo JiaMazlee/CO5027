@@ -40,6 +40,7 @@ namespace CO5027
 
                     ShoppingCart model = new ShoppingCart();
                     lblResult.Text = model.InsertShoppingCart(cart);
+                    Response.Redirect("~/Cart.aspx");
                 }
                 else
                 {

@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace CO5027.Admin
 {
-    public partial class Management : System.Web.UI.Page
+    public partial class ListOfProduct : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

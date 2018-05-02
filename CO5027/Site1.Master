@@ -18,13 +18,16 @@
             <div id="navigation">
                 <ul id="nav">
                     <li>
-                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Index.aspx">Home</asp:HyperLink></li>
+                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Default.aspx">Home</asp:HyperLink></li>
                     <li>
                         <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/AboutUs.aspx">About us</asp:HyperLink></li>
                     <li>
                         <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/ProductList.aspx">Products</asp:HyperLink></li>
                     <li>
                         <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Contact.aspx">Contact Us</asp:HyperLink></li>
+                     <li>
+                        <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="http://www.readymix.com.bn/">Company Profile</asp:HyperLink></li>
+
 
                     <li style="float:right">
                         <asp:HyperLink ID="lnkRegister" NavigateUrl="~/Account/Register.aspx" runat="server">Register</asp:HyperLink>

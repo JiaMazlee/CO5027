@@ -30,7 +30,7 @@
             <tr>
                 <td>
                     <br />
-                    <asp:LinkButton ID="ContShop" runat="server" PostBackUrl="~/Products.aspx">Continue Shopping</asp:LinkButton><br />OR<br />                    
+                    <asp:LinkButton ID="ContShop" runat="server" PostBackUrl="~/ProductList.aspx">Continue Shopping</asp:LinkButton><br />OR<br />                    
                     <asp:Button ID="btnCheckout" runat="server" Text="Check Out" CssClass="btn btn-lg btn-success btn-block" Width="250px" PostBackUrl="~/Complete.aspx" />
 
                 </td>

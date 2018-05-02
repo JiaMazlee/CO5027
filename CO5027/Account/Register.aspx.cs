@@ -20,12 +20,9 @@ namespace CO5027.Account
         protected void btnRegister_Click(object sender, EventArgs e)
 
         {
-            UserStore<IdentityUser> userStore = new UserStore<IdentityUser>();
-            userStore.Context.Database.Connection.ConnectionString =
-                System.Configuration.ConfigurationManager.ConnectionStrings["co5027_ConnectionString"].ConnectionString;
-
-            UserManager<IdentityUser> manager = new UserManager<IdentityUser>(userStore);
-
+            var identityDbContext = new IdentityDbContext("co5027_ConnectionString");
+            var userStore = new UserStore<IdentityUser>(identityDbContext);
+            var manager = new UserManager<IdentityUser>(userStore);
 
 
             //Create new user and try to store in DB.
@@ -71,7 +68,7 @@ namespace CO5027.Account
 
                             //Log in the new user and redirect to Product page
                             authenticationManager.SignIn(new AuthenticationProperties(), userIdentity);
-                            Response.Redirect("~/Account/Login.aspx");
+                            Response.Redirect("~/ProductList.aspx");
                         }
                         else
                         {

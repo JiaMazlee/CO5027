@@ -5,6 +5,10 @@
     background-color: lavender;
 }
 
+a {
+    color:red
+}
+
 #wrapper {
     width: 1100px;
     margin: auto;

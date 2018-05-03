@@ -28,7 +28,6 @@
                      <li>
                         <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="http://www.readymix.com.bn/">Company Profile</asp:HyperLink></li>
 
-
                     <li style="float:right">
                         <asp:HyperLink ID="lnkRegister" NavigateUrl="~/Account/Register.aspx" runat="server">Register</asp:HyperLink>
                         <asp:HyperLink ID="litStatus" runat="server" NavigateUrl="~/Cart.aspx" ></asp:HyperLink>
@@ -49,6 +48,13 @@
             </div>
         </div>
     </div>
-    </form>
+
+        <asp:Button ID="Button1" runat="server" Text="Validate HTML" OnClick="Button1_Click"/>
+        <asp:Button ID="Button2" runat="server" Text="Validate CSS" OnClick="Button2_Click"/>
+         <asp:Button ID="Button3" runat="server" Text="Admin" OnClick="Button3_Click"/>
+</form>
+
+  
 </body>
+
 </html>

@@ -47,5 +47,20 @@ namespace CO5027
 
             Response.Redirect("~/Default.aspx");
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("https://validator.w3.org/nu/?doc=http%3A%2F%2F1722759.win.studentwebserver.co.uk%2FCO5027%2F");
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("http://jigsaw.w3.org/css-validator/validator?uri=1722759.win.studentwebserver.co.uk%2FCO5027&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en");
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Admin/Dashboard.aspx");
+        }
     }
 }
